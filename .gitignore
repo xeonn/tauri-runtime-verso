@@ -1,2 +1,6 @@
 /target
 .vscode
+
+# graphify
+graphify-out/
+.cursor/rules/graphify.mdc
