@@ -25,12 +25,12 @@ To get started, you need to add this crate to your project, and use `default-fea
 ```diff
   [build-dependencies]
   tauri-build = "2"
-+ tauri-runtime-verso-build = { git = "https://github.com/versotile-org/tauri-runtime-verso.git" }
++ tauri-runtime-verso-build = { git = "https://github.com/xeonn/tauri-runtime-verso.git" }
 
   [dependencies]
 - tauri = { version = "2", features = [] }
 + tauri = { version = "2", default-features = false, features = ["common-controls-v6"] }
-+ tauri-runtime-verso = { git = "https://github.com/versotile-org/tauri-runtime-verso.git" }
++ tauri-runtime-verso = { git = "https://github.com/xeonn/tauri-runtime-verso.git" }
 ```
 
 In your build script, add the `tauri-runtime-verso-build` script, which will download the pre-built `versoview` to `versoview/versoview-{target-triple}`
