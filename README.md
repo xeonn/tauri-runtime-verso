@@ -6,6 +6,18 @@ A tauri runtime to replace the backend with [Verso](https://github.com/xeonn/ver
 
 [Verso](https://github.com/xeonn/verso) is a browser built on top of the [Servo](https://servo.org/) browser engine, and in our case, we use it as a webview. The reason for this is because the Servo embedding APIs are quite low level and requires the user (embedder) to send everything about the system to drive it, and with Verso, we provide Servo with these things under the hood, then expose some higher level APIs so that you can just let it run and only control it when you need something, this is similar to the [windowed vs visual hosting mode](https://learn.microsoft.com/en-us/microsoft-edge/webview2/concepts/windowed-vs-visual-hosting) of [WebView2](https://developer.microsoft.com/en-us/microsoft-edge/webview2) except for when using Servo directly, you'll need to pass in more than just user inputs
 
+## Verso dependency
+
+This runtime depends on the [`verso`](https://github.com/xeonn/verso) library and `versoview_build` from [xeonn/verso](https://github.com/xeonn/verso), pinned to the published release [`versoview-v0.0.9`](https://github.com/xeonn/verso/releases/tag/versoview-v0.0.9) (`8e126d0a63133e188535d44cc3e977ca9653efbb`).
+
+`tauri-runtime-verso-build` downloads the matching prebuilt `versoview` from that release:
+
+```text
+https://github.com/xeonn/verso/releases/download/versoview-v0.0.9/verso-<target>.tar.gz
+```
+
+The `0.0.9` release includes `x86_64-unknown-linux-gnu`, `x86_64-pc-windows-msvc`, `x86_64-apple-darwin`, and `aarch64-apple-darwin`.
+
 ## Usage
 
 To get started, you need to add this crate to your project, and use `default-feature = false` on `tauri` to disable the `wry` feature
@@ -23,7 +35,7 @@ To get started, you need to add this crate to your project, and use `default-fea
 
 In your build script, add the `tauri-runtime-verso-build` script, which will download the pre-built `versoview` to `versoview/versoview-{target-triple}`
 
-> Note we currently only have pre-built `versoview` for x64 Linux, Windows, MacOS and arm64 MacOS, also the download might take a bit of time if you have a slow internet connection
+> The download comes from the `versoview-v0.0.9` release above. It can take a while on a slow connection.
 
 ```diff
 fn main() {
