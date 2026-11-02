@@ -12,8 +12,8 @@ members = [
 ]
 
 [workspace.dependencies]
-verso = { git = "https://github.com/tauri-apps/verso", rev = "572f47ca7ead69ce3e8b0c433e5cff237f0514c9" }
-versoview_build = { git = "https://github.com/tauri-apps/verso", rev = "572f47ca7ead69ce3e8b0c433e5cff237f0514c9" }
+verso = { git = "https://github.com/xeonn/verso", rev = "8e126d0a63133e188535d44cc3e977ca9653efbb" }
+versoview_build = { git = "https://github.com/xeonn/verso", rev = "8e126d0a63133e188535d44cc3e977ca9653efbb" }
 
 [features]
 # Required if you use tauri's macos-private-api feature
@@ -40,7 +40,7 @@ gtk = { version = "0.18", features = ["v3_24"] }
 [target.'cfg(target_os = "macos")'.dependencies]
 objc2-app-kit = { version = "0.3", features = ["NSScreen"] }
 
-[patch."https://github.com/tauri-apps/verso"]
+[patch."https://github.com/xeonn/verso"]
 # verso = { path = "../verso/verso" }
 # versoview_build = { path = "../verso/versoview_build" }
 
